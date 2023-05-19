@@ -1,12 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const getData = async (setData, type) => {
-  const ip = await axios.get('https://api.ipify.org?format=json');
+const getData = async (setData, type, lat, lng) => {
   const res = await axios.get(import.meta.env.VITE_API_URL + "/" + type + ".json", {
     params: {
       key: import.meta.env.VITE_API_KEY,
-      q: ip.data.ip,
+      q: lat + "," + lng,
       lang: "cs",
     }
   });
@@ -100,7 +99,20 @@ export const HomePage = () => {
   const [weather, setWeather] = useState(null);
 
   useEffect(() => {
-    getData(setWeather, "current");
+    if ("geolocation" in navigator) {
+      navigator.geolocation.watchPosition(
+        function(position) {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+          getData(setWeather, "current", lat, lng);
+        },
+        function(error) {
+          console.error("Error getting user location:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
   }, []);
 
   const getImage = () => {
@@ -121,7 +133,7 @@ export const HomePage = () => {
 
   return (
     <>
-      {weather?.current ?
+      {weather ?
         <div className="card">
           <div className="card__topInfo">
             <p className="city">{weather?.location.name}</p>
@@ -159,7 +171,7 @@ export const HomePage = () => {
             </div>
           </div>
         </div> :
-        <div className="card">
+        <div className="card not-available">
           <img src="./img/not-available.svg" alt="načítání" />
         </div>
       }

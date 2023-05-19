@@ -28,6 +28,11 @@ html, body {
   justify-content: center;
   align-items: center;
 
+  &.not-available {
+    padding: 1rem;
+    img { width: 150px; }
+  }
+
   &__topInfo {
     display: flex;
     justify-content: space-between;
