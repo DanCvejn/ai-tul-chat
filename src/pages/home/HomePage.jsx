@@ -15,7 +15,7 @@ const getData = async (setData, type, lat, lng) => {
 
 const images = [
   {
-    name: "Slunečno, Místy blízký déšť",
+    name: "Slunečno, Místy blízký déšť, Jasno",
     options: true,
     imgOptions: {
       day: "/day/clear-day.svg",
