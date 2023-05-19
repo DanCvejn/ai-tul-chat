@@ -2,10 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const getData = async (setData, type, lat, lng) => {
+  const ip = await axios.get("https://api.ipify.org?format=json");
   const res = await axios.get(import.meta.env.VITE_API_URL + "/" + type + ".json", {
     params: {
       key: import.meta.env.VITE_API_KEY,
-      q: lat + "," + lng,
+      // q: lat + "," + lng,
+      q: ip.data.ip,
       lang: "cs",
     }
   });
