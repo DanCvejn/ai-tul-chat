@@ -1,12 +1,110 @@
+$primary: #131313;
+
 html, body {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
   font-family: "Montserrat";
+  background: $primary;
+  color: white;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.card {
+  background: linear-gradient(45deg, transparentize(white, .98), transparentize(white, .95));
+  padding: 2.5rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__topInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+
+    .city {
+      padding: .5rem .75rem;
+      background: transparentize(white, .95);
+      border-radius: .5rem;
+      font-size: .9rem;
+    }
+
+    .time {
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+    }
+  }
+
+  &__mainInfo {
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+
+    img {
+      width: 70%;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      text-align: center;
+      max-width: 400px;
+    }
+  }
+
+  &__bottomInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .line {
+      font-size: 1.1rem;
+      display: flex;
+      gap: .5rem;
+      align-items: center;
+
+      &:last-child {margin-bottom: 0;}
+
+      img {height: 2rem;}
+      &:nth-child(1) {img { height: 3rem; aspect-ratio: 1/1.6; object-fit: cover; }}
+    }
+
+    .temperature {
+      font-size: 5rem;
+      font-weight: bold;
+      text-align: right;
+      position: relative;
+      padding-right: 1.75rem;
+
+      &::before {
+        position: absolute;
+        top: 17.5%;
+        right: 0;
+        content: "°C";
+        font-size: 1.25rem;
+        color: transparentize(white, .5);
+      }
+    }
+    .feelslike {
+      font-size: .9rem;
+      color: transparentize(white, .5);
+      text-align: right;
+    }
+  }
 }
