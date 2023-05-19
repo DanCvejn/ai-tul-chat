@@ -19,7 +19,7 @@ const images = [
     options: true,
     imgOptions: {
       day: "/day/clear-day.svg",
-      night: "/day/clear-night.svg"
+      night: "/night/clear-night.svg"
     },
   },
   {
@@ -27,7 +27,7 @@ const images = [
     options: true,
     imgOptions: {
       day: "/day/haze-day.svg",
-      night: "/day/haze-night.svg",
+      night: "/night/haze-night.svg",
     }
   },
   {
@@ -35,7 +35,7 @@ const images = [
     options: true,
     imgOptions: {
       day: "/day/fog-day.svg",
-      night: "/day/fog-night.svg",
+      night: "/night/fog-night.svg",
     }
   },
   {
@@ -58,7 +58,7 @@ const images = [
     options: true,
     imgOptions: {
       day: "/day/clear-day.svg",
-      night: "/day/clear-night.svg",
+      night: "/night/clear-night.svg",
     }
   },
   {
@@ -71,7 +71,7 @@ const images = [
     options: true,
     imgOptions: {
       day: "/day/overcast-day.svg",
-      night: "/day/overcast-night.svg",
+      night: "/night/overcast-night.svg",
     }
   },
   {
@@ -79,7 +79,7 @@ const images = [
     options: true,
     imgOptions: {
       day: "/day/partly-cloudy-day.svg",
-      night: "/day/partly-cloudy-night.svg",
+      night: "/night/partly-cloudy-night.svg",
     }
   },
 ];
