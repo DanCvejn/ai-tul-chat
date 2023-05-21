@@ -6,8 +6,8 @@ const getData = async (setData, type, lat, lng) => {
   const res = await axios.get(import.meta.env.VITE_API_URL + "/" + type + ".json", {
     params: {
       key: import.meta.env.VITE_API_KEY,
-      // q: lat + "," + lng,
-      q: ip.data.ip,
+      q: lat + "," + lng,
+      // q: ip.data.ip,
       lang: "cs",
     }
   });
