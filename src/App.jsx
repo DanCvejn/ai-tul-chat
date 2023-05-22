@@ -111,6 +111,7 @@ const windDirections = {
 
 function App() {
   const [weather, setWeather] = useState(null);
+  const [lastWeather, setLastWeather] = useState(null);
   const [citySearch, setCitySearch] = useState("");
   const [loading, setLoading] = useState(false);
   const [searchTab, setSearchTab] = useState(false);
@@ -134,7 +135,12 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (!weather?.error) setCitySearch(weather?.location.name);
+    if (!weather?.error) {
+      setLastWeather(weather);
+      if (weather?.location.name !== lastWeather?.location.name) {
+        setCitySearch(weather?.location.name);
+      }
+    }
   }, [weather])
 
   const getImage = () => {
