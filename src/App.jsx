@@ -161,7 +161,7 @@ function App() {
 
   return (
     <>
-      {loading ?
+      {(loading && !weather) ?
         <div className="card loading">
           <IconLoader2 size={48} stroke={1.5} />
         </div> :
